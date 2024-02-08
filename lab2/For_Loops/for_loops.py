@@ -18,6 +18,6 @@ for x in range(6):
 fruits = ["apple", "banana", "cherry"]
 for x in fruits:
     if x == "banana":
-         break
+        break
     print(x)
 
