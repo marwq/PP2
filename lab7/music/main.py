@@ -9,12 +9,15 @@ class App:
         self.done = False
         self.songs_folder = songs_folder
         self.screen = pygame.display.set_mode((400, 400))
+        self.load_songs(songs_folder)
+        self.set_buttons()
+        
+    def load_songs(self, songs_folder: str):
         files = os.listdir(songs_folder)
         self.songs = [f for f in files if f.endswith('.mp3')]
         self.count = len(self.songs)
         self.curr_id = 0
         self.is_playing = False
-        self.set_buttons()
         
     def set_buttons(self):
         self.buttons = [
@@ -101,10 +104,10 @@ class App:
             ), (45, 206)
         )
         pos = pygame.mixer.music.get_pos()
-        pos = f'{pos // 60000:0>2}:{(pos // 1000) % 60:0>2}'
+        pos_text = f'{pos // 60000:0>2}:{(pos // 1000) % 60:0>2}'
         self.screen.blit(
             pygame.font.SysFont('arial', 14).render(
-                pos, True, (255, 255, 255)
+                pos_text, True, (255, 255, 255)
             ), (45, 230)
         )
 

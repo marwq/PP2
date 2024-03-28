@@ -30,7 +30,7 @@ def get_second_angle():
 def rot_center(image, rect, angle):
     rot_image = pygame.transform.rotate(image, angle)
     rot_rect = rot_image.get_rect(center=rect.center)
-    return rot_image,rot_rect
+    return rot_image, rot_rect
 
 def draw_all():
     screen.blit(Img.clock, (0, 0))
